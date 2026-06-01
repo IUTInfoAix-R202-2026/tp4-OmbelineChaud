@@ -15,10 +15,14 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 /**
- * Test de l'exercice 4, côté vue (TestFX) : on lance l'application réelle (ConnexionApp). Si elle
- * démarre et que la connexion fonctionne, c'est que toute la chaîne d'injection a été câblée par
- * Guice : l'injecteur est créé, le controllerFactory construit le contrôleur, son {@code @Inject}
- * reçoit le ViewModel, qui reçoit lui-même le ServiceAuth. Le module et le {@code @Inject} du
+ * Test de l'exercice 4, côté vue (TestFX) : on lance l'application réelle
+ * (ConnexionApp). Si elle
+ * démarre et que la connexion fonctionne, c'est que toute la chaîne d'injection
+ * a été câblée par
+ * Guice : l'injecteur est créé, le controllerFactory construit le contrôleur,
+ * son {@code @Inject}
+ * reçoit le ViewModel, qui reçoit lui-même le ServiceAuth. Le module et le
+ * {@code @Inject} du
  * ViewModel sont par ailleurs couverts sans fenêtre par {@link AppModuleTest}.
  */
 @ExtendWith(ApplicationExtension.class)
@@ -40,7 +44,6 @@ class ConnexionControllerTest {
     return robot.lookup("#labelStatut").queryAs(Label.class).getText();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_fenetre_s_ouvre_avec_le_formulaire(FxRobot robot) {
     assertThat(robot.lookup("#champIdentifiant").tryQuery())
@@ -49,7 +52,6 @@ class ConnexionControllerTest {
     assertThat(robot.lookup("#boutonValider").tryQuery()).isPresent();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void au_demarrage_le_bouton_est_desactive(FxRobot robot) {
     Button valider = robot.lookup("#boutonValider").queryAs(Button.class);
@@ -58,7 +60,6 @@ class ConnexionControllerTest {
         .isTrue();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void se_connecter_via_guice_affiche_la_bienvenue(FxRobot robot) {
     saisir(robot, "marie", "chiro2026");
@@ -68,8 +69,7 @@ class ConnexionControllerTest {
         .as("toute la chaîne Contrôleur → ViewModel → ServiceAuth doit être câblée par Guice")
         .isEqualTo("Bienvenue marie !");
   }
-
-  @Disabled("Retire cette annotation pour activer le test")
+gut 
   @Test
   void un_mauvais_mot_de_passe_affiche_l_erreur(FxRobot robot) {
     saisir(robot, "marie", "mauvais");

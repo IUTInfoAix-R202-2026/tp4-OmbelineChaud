@@ -1,5 +1,7 @@
 package fr.univ_amu.iut.exercice4;
 
+import com.google.inject.Inject;
+
 import fr.univ_amu.iut.exercice3.ServiceAuth;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -7,15 +9,23 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- * ViewModel de l'exercice 4 : même logique que le formulaire de l'exercice 3, mais le service est
+ * ViewModel de l'exercice 4 : même logique que le formulaire de l'exercice 3,
+ * mais le service est
  * désormais <b>injecté par Guice</b>.
  *
- * <p>La seule différence visible avec l'exercice 3 est l'annotation {@code @Inject} sur le
- * constructeur : elle indique à Guice "pour construire ce ViewModel, fournis-moi un ServiceAuth".
- * Guice résout cette dépendance grâce au binding déclaré dans {@link AppModule}.
+ * <p>
+ * La seule différence visible avec l'exercice 3 est l'annotation
+ * {@code @Inject} sur le
+ * constructeur : elle indique à Guice "pour construire ce ViewModel,
+ * fournis-moi un ServiceAuth".
+ * Guice résout cette dépendance grâce au binding déclaré dans
+ * {@link AppModule}.
  *
- * <p>Le ViewModel reste totalement ignorant de Guice au-delà de cette annotation : il ne crée aucun
- * service, ne connaît aucune implémentation concrète. Il est donc toujours testable directement (en
+ * <p>
+ * Le ViewModel reste totalement ignorant de Guice au-delà de cette annotation :
+ * il ne crée aucun
+ * service, ne connaît aucune implémentation concrète. Il est donc toujours
+ * testable directement (en
  * lui passant un faux service au constructeur), comme à l'exercice 3.
  */
 public class ConnexionViewModel {
@@ -29,6 +39,7 @@ public class ConnexionViewModel {
 
   // TODO exercice 4 : annoter ce constructeur avec @Inject pour que Guice
   // sache l'utiliser et lui fournir le ServiceAuth.
+  @Inject
   public ConnexionViewModel(ServiceAuth serviceAuth) {
     this.serviceAuth = serviceAuth;
     validable.bind(identifiant.isNotEmpty().and(motDePasse.isNotEmpty()));
