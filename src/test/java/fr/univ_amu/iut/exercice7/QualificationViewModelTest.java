@@ -35,7 +35,6 @@ class QualificationViewModelTest {
         .isFalse();
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void selectionner_une_sequence_active_l_ecoute_et_decrit_la_selection() {
     Sequence premiere = vm.sequencesProperty().get(0);
