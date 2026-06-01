@@ -19,7 +19,6 @@ class QualificationViewModelTest {
     vm = new QualificationViewModel(new ServiceNuitsDemo());
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void la_nuit_contient_dix_sequences() {
     assertThat(vm.sequencesProperty())
@@ -27,7 +26,6 @@ class QualificationViewModelTest {
         .hasSize(10);
   }
 
-  @Disabled("Retire cette annotation pour activer le test")
   @Test
   void sans_selection_le_libelle_invite_a_choisir_et_l_ecoute_est_impossible() {
     assertThat(vm.descriptionSelectionProperty().get())
