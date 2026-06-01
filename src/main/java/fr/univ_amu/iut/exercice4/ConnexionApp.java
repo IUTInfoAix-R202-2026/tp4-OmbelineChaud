@@ -11,15 +11,10 @@ import javafx.stage.Stage;
 /**
  * Point d'entrée de l'exercice 4.
  *
- * <p>
- * Comparez avec l'exercice 3 : il n'y a plus de {@code new ServiceAuthSimple()}
- * ni de {@code new
- * ConnexionViewModel(...)} à la main. On crée un {@link Injector} à partir du
- * module, puis on dit à
- * {@link FXMLLoader} d'utiliser Guice comme fabrique de contrôleurs
- * ({@code setControllerFactory}).
- * Toute la chaîne de dépendances (Contrôleur -> ViewModel -> ServiceAuth) est
- * câblée
+ * <p>Comparez avec l'exercice 3 : il n'y a plus de {@code new ServiceAuthSimple()} ni de {@code new
+ * ConnexionViewModel(...)} à la main. On crée un {@link Injector} à partir du module, puis on dit à
+ * {@link FXMLLoader} d'utiliser Guice comme fabrique de contrôleurs ({@code setControllerFactory}).
+ * Toute la chaîne de dépendances (Contrôleur -> ViewModel -> ServiceAuth) est câblée
  * automatiquement.
  */
 public class ConnexionApp extends Application {

@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -15,14 +14,10 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 /**
- * Test de l'exercice 4, côté vue (TestFX) : on lance l'application réelle
- * (ConnexionApp). Si elle
- * démarre et que la connexion fonctionne, c'est que toute la chaîne d'injection
- * a été câblée par
- * Guice : l'injecteur est créé, le controllerFactory construit le contrôleur,
- * son {@code @Inject}
- * reçoit le ViewModel, qui reçoit lui-même le ServiceAuth. Le module et le
- * {@code @Inject} du
+ * Test de l'exercice 4, côté vue (TestFX) : on lance l'application réelle (ConnexionApp). Si elle
+ * démarre et que la connexion fonctionne, c'est que toute la chaîne d'injection a été câblée par
+ * Guice : l'injecteur est créé, le controllerFactory construit le contrôleur, son {@code @Inject}
+ * reçoit le ViewModel, qui reçoit lui-même le ServiceAuth. Le module et le {@code @Inject} du
  * ViewModel sont par ailleurs couverts sans fenêtre par {@link AppModuleTest}.
  */
 @ExtendWith(ApplicationExtension.class)
@@ -69,7 +64,7 @@ class ConnexionControllerTest {
         .as("toute la chaîne Contrôleur → ViewModel → ServiceAuth doit être câblée par Guice")
         .isEqualTo("Bienvenue marie !");
   }
-gut 
+
   @Test
   void un_mauvais_mot_de_passe_affiche_l_erreur(FxRobot robot) {
     saisir(robot, "marie", "mauvais");
