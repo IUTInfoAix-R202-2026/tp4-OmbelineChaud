@@ -11,36 +11,26 @@ import javafx.scene.control.TextField;
 /**
  * Contrôleur de vue de l'exercice 4.
  *
- * <p>
- * Différence clef avec l'exercice 3 : le ViewModel n'est plus passé par le
- * constructeur à la
+ * <p>Différence clef avec l'exercice 3 : le ViewModel n'est plus passé par le constructeur à la
  * main, il est <b>injecté par Guice</b> dans le champ annoté {@code @Inject}.
  *
- * <p>
- * Deux mécanismes d'injection cohabitent ici, et c'est normal :
+ * <p>Deux mécanismes d'injection cohabitent ici, et c'est normal :
  *
  * <ul>
- * <li>{@code @Inject} (Guice) remplit {@code viewModel} quand le
- * {@code controllerFactory}
- * construit le contrôleur ;
- * <li>{@code @FXML} (FXMLLoader) remplit les champs d'interface au chargement
- * du FXML, puis
- * appelle {@code initialize()}.
+ *   <li>{@code @Inject} (Guice) remplit {@code viewModel} quand le {@code controllerFactory}
+ *       construit le contrôleur ;
+ *   <li>{@code @FXML} (FXMLLoader) remplit les champs d'interface au chargement du FXML, puis
+ *       appelle {@code initialize()}.
  * </ul>
  */
 public class ConnexionController {
 
-  @Inject
-  private ConnexionViewModel viewModel;
+  @Inject private ConnexionViewModel viewModel;
 
-  @FXML
-  private TextField champIdentifiant;
-  @FXML
-  private PasswordField champMotDePasse;
-  @FXML
-  private Button boutonValider;
-  @FXML
-  private Label labelStatut;
+  @FXML private TextField champIdentifiant;
+  @FXML private PasswordField champMotDePasse;
+  @FXML private Button boutonValider;
+  @FXML private Label labelStatut;
 
   @FXML
   private void initialize() {
@@ -51,7 +41,8 @@ public class ConnexionController {
 
     // Affordance (Nielsen #5) : bouton vert et actionnable quand le formulaire
     // est validable, gris sinon (même property que disableProperty).
-    String styleActif = "-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;";
+    String styleActif =
+        "-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;";
     String styleInactif = "-fx-background-color: #cccccc; -fx-text-fill: #777777; -fx-opacity: 1;";
     boutonValider
         .styleProperty()

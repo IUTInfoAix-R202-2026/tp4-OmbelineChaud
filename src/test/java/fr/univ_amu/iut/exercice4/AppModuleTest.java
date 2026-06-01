@@ -6,12 +6,10 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import fr.univ_amu.iut.exercice3.ServiceAuth;
 import fr.univ_amu.iut.exercice3.ServiceAuthSimple;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test de l'exercice 4 : on vérifie que le module Guice câble correctement les
- * dépendances. Guice
+ * Test de l'exercice 4 : on vérifie que le module Guice câble correctement les dépendances. Guice
  * fonctionne sans interface graphique : ce test est un pur test JUnit.
  */
 class AppModuleTest {
