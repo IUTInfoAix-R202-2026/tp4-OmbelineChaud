@@ -57,12 +57,13 @@ public class QualificationViewModel {
               if (sequenceSelectionnee.get() == null) {
                 return ("(sélectionnez une séquence dans le tableau)");
               } else {
-                String heureRetour = HEURE.format(sequenceSelectionnee.get().getHorodatage());
-                return ("Séquence " + heureRetour + "kHz");
+                String heureRetour =
+                    HEURE.format(sequenceSelectionnee.get().getHorodatage()); // à refaire
+                return ("Séquence " + heureRetour + " - kHz"); // à refaire
               }
             },
             sequenceSelectionnee));
-    //
+
     // 2. verdictGlobalLibelle : "Verdict global : (à saisir)" tant que le verdict
     // du modèle est vide, sinon "Verdict global : <verdict>".
     // Astuce : dépend de nuit.verdictGlobalProperty().
