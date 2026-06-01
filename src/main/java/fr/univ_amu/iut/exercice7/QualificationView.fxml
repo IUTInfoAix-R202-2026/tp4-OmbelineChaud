@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fr.univ_amu.iut.exercice7.QualificationController"
-      spacing="12"
-      style="-fx-padding: 16;"
-      prefWidth="900" prefHeight="820">
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="fr.univ_amu.iut.exercice7.QualificationController"
+  spacing="12"
+  style="-fx-padding: 16;"
+  prefWidth="900" prefHeight="820">
 
   <HBox spacing="16">
     <TableView fx:id="tableSequences" prefWidth="440" prefHeight="300">
@@ -31,7 +31,7 @@
 
     <VBox spacing="12" HBox.hgrow="ALWAYS">
       <Label text="Vérifier la nuit d'enregistrement"
-             style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        style="-fx-font-size: 16px; -fx-font-weight: bold;" />
 
       <Label fx:id="labelSelection" wrapText="true" />
       <Button fx:id="boutonEcouter" text="Écouter" onAction="#surEcouter" />
@@ -46,7 +46,7 @@
       <Label text="Verdict global" />
       <ChoiceBox fx:id="choiceVerdict" />
       <Button fx:id="boutonEnregistrer" text="Enregistrer le verdict"
-              onAction="#surEnregistrerVerdict" />
+        onAction="#surEnregistrerVerdict" />
       <Label fx:id="labelVerdictGlobal" style="-fx-font-weight: bold;" />
     </VBox>
   </HBox>
