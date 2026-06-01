@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fr.univ_amu.iut.exercice5.PokemonController"
-      spacing="10"
-      style="-fx-padding: 16; -fx-min-width: 440;">
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="fr.univ_amu.iut.exercice5.PokemonController"
+  spacing="10"
+  style="-fx-padding: 16; -fx-min-width: 440;">
 
   <Label text="Mon Pokédex (ObservableList + TableView)"
-         style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    style="-fx-font-size: 16px; -fx-font-weight: bold;" />
 
   <TableView fx:id="table" prefHeight="280">
     <columns>
