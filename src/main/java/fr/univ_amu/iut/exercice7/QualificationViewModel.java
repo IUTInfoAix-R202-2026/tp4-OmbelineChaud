@@ -57,9 +57,8 @@ public class QualificationViewModel {
               if (sequenceSelectionnee.get() == null) {
                 return ("(sélectionnez une séquence dans le tableau)");
               } else {
-                String heureRetour =
-                    HEURE.format(sequenceSelectionnee.get().getHorodatage()); // à refaire
-                return ("Séquence " + heureRetour + " - kHz"); // à refaire
+                String heureRetour = HEURE.format(sequenceSelectionnee.get().getHorodatage());
+                return ("Séquence " + heureRetour + " - kHz");
               }
             },
             sequenceSelectionnee));
@@ -67,9 +66,13 @@ public class QualificationViewModel {
     // 2. verdictGlobalLibelle : "Verdict global : (à saisir)" tant que le verdict
     // du modèle est vide, sinon "Verdict global : <verdict>".
     // Astuce : dépend de nuit.verdictGlobalProperty().
-    verdictSaisi.bind(nuit.verdictGlobalProperty());
-    if (verdictSaisi == null) verdictGlobalLibelle.set("Verdict global : (à saisir)");
-    else verdictGlobalLibelle.set("Verdict global : " + verdictSaisi.get());
+    verdictGlobalLibelle.bind(
+        Bindings.createStringBinding(
+            () -> {
+              if (nuit.getVerdictGlobal().isEmpty()) return "Verdict global : (à saisir)";
+              else return ("Verdict global : " + nuit.getVerdictGlobal());
+            },
+            nuit.verdictGlobalProperty()));
   }
 
   public ObservableList<Sequence> sequencesProperty() {
@@ -109,7 +112,8 @@ public class QualificationViewModel {
   public void ecouterCommand() {
     // TODO exercice 7 : si une séquence est sélectionnée, passer son statut à
     // "Écoutée".
-    if (sequenceSelectionnee != null) Sequence.setStatut("Écoutée");
+    Sequence sec = sequenceSelectionnee.get();
+    if (sec != null) sec.setStatut("Écoutée");
   }
 
   /** Enregistre le verdict saisi dans le modèle de la nuit. */
