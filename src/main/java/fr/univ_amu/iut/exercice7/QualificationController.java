@@ -65,6 +65,8 @@ public class QualificationController {
             new SimpleStringProperty(String.valueOf(c.getValue().frequenceDominanteKHzProperty())));
     colDuree.setCellValueFactory(
         c -> new SimpleStringProperty(String.valueOf(c.getValue().dureeSecondesProperty())));
+    colStatut.setCellValueFactory(
+        c -> new SimpleStringProperty(String.valueOf(c.getValue().statutProperty())));
 
     // 2. tableSequences.setItems(viewModel.sequencesProperty());
     tableSequences.setItems(viewModel.sequencesProperty());
